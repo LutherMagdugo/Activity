@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: MyHomePage(),
+  ));
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Hello World', style: TextStyle(fontSize: 20)),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ContactItem(name: 'Dan'),
+          ContactItem(name: 'John'),
+          ContactItem(name: 'Luther'),
+        ],
+      ),
+    );
+  }
+}
+
+class ContactItem extends StatelessWidget {
+  final String name;
+
+  const ContactItem({required this.name});
+
+  @override
+  Widget build(BuildContext context) {
+    int nameLength = name.length;
+
+    return ListTile(
+      title: Text('$name ($nameLength letters)'),
+      subtitle: Text('Contact Details for $name'),
+    );
+  }
+}
